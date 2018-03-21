@@ -11,6 +11,12 @@ Uses Ribbon to load balance between multiple services
 ### Security
 Uses Spring Security and Zuul filters to apply RBAC to the api endpoints. More info to come.
 
+This should be taken into consideration when using JWTs.
+https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java
+
+#### Using Security
+To use security, modify the gateway-default.properties and set security.enabled to true. The gateway will now enforce a valid JWT token before allowing for a request to go through.
+
 ## Run
 1) Ensure the monitor application is running
 2) mvn spring-boot:run

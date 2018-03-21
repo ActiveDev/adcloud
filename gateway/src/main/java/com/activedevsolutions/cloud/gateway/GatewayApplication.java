@@ -18,6 +18,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
+
+import com.activedevsolutions.cloud.gateway.filters.RBACAuthFilter;
 
 @SpringBootApplication
 @EnableZuulProxy
@@ -27,5 +30,15 @@ public class GatewayApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
+	}
+	
+	/**
+	 * Registers the authorization filter for Zuul.
+	 * 
+	 * @return RBACAuthFilter to be used by Zuul
+	 */
+	@Bean
+	public RBACAuthFilter rbacAuthFilter() {
+		return new RBACAuthFilter();
 	}
 }
