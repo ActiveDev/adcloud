@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.activedevsolutions.rbac.autoconfigure.OAuth2Configuration,com.activedevsolutions.rbac.autoconfigure.NoOpConfiguration
