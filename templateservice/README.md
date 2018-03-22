@@ -8,6 +8,9 @@ Acts as a template for any microservice that needs to be created. It provides th
 ## Run
 mvn spring-boot:run
 
+## Action Items
+Very much a work in progress. To be honest, the aclservice is a better template service. This project will need to be updated. For now, it acts as a good dummy service to run some tests and do demos.
+
 ## Example
 ### Add
 curl -v -H "Content-Type:application/x-www-form-urlencoded" -X POST -d 'param1=aaa&param2=bbb&param3=ccc' http://localhost:9000/template/v1.0/items
