@@ -1,7 +1,7 @@
 # Template
 Acts as a template for any microservice that needs to be created. It provides the following:
 
-* Using GET, GET{id}, POST, PATCH{id}, DELETE{id}
+* Using GET, GET{id}, POST, PUT{id}, DELETE{id}
 * Common Http Status codes
 * Exception handling
 
@@ -9,20 +9,10 @@ Acts as a template for any microservice that needs to be created. It provides th
 mvn spring-boot:run
 
 ## Action Items
-Very much a work in progress. To be honest, the aclservice is a better template service. This project will need to be updated. For now, it acts as a good dummy service to run some tests and do demos.
+Just finished making it similar to the acl service. The common code needs to be moved into a library to be used by all microservices. Just like the acl service, still lots to do here.
 
-## Example
-### Add
-curl -v -H "Content-Type:application/x-www-form-urlencoded" -X POST -d 'param1=aaa&param2=bbb&param3=ccc' http://localhost:9000/template/v1.0/items
+## JMeter Tests
+Added some jmeter tests to see how the service runs on its own (no gateway or config server).
 
-### Get (list)
-curl -v -H "Content-Type:application/x-www-form-urlencoded" -X GET http://localhost:9000/template/v1.0/items
-
-### Get Item
-curl -v -H "Content-Type:application/x-www-form-urlencoded" -X GET http://localhost:9000/template/v1.0/items/{use_an_id_from_the_list_call}
-
-### Partial Update Item
-curl -v -H "Content-Type:application/x-www-form-urlencoded" -X PATCH -d 'param3=ddd' http://localhost:9000/template/v1.0/items/{use_an_id_from_the_list_call}
-
-### Delete Item
-curl -v -H "Content-Type:application/x-www-form-urlencoded" -X DELETE http://localhost:9000/template/v1.0/items/{use_an_id_from_the_list_call}
+## Url
+localhost:9000/template/v1.0/items

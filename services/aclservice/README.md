@@ -19,3 +19,15 @@ Still a work in progress with lots to do:
 * Plug into gateway
 * Clean up code
 * Address TODOs
+
+## JMeter Tests
+There are JMeter tests that can be run to see how the service works with the various calls.
+
+## Url
+http://localhost:9001/acl/v1.0/<resource>
+
+Reousrces:
+* users
+* groups
+* roles
+* permissions
