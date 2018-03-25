@@ -6,7 +6,8 @@ Provides CRUD functionality for the access control list of the system.
 * Exception handling
 
 ## Run
-mvn spring-boot:run
+* Ensure MySql Server is running.
+* mvn spring-boot:run
 
 ## Action Items
 Still a work in progress with lots to do:
