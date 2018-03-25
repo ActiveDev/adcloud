@@ -40,6 +40,11 @@ public class UserController extends AbstractController<User> {
 		return item;
 	}
 	
+	@Override
+	protected String getMapping() {
+		return "/v1.0/users";
+	}
+	
 	/**
 	 * Adds groups to a user.
 	 * 

@@ -21,4 +21,10 @@ public class PermissionController extends AbstractController<Permission> {
 		item.setId(id);
 		return item;
 	}
+	
+	@Override
+	protected String getMapping() {
+		return "/v1.0/permissions";
+	}
+
 }

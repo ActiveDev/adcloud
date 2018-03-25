@@ -40,6 +40,12 @@ public class RoleController extends AbstractController<Role> {
 		return item;
 	}
 	
+	@Override
+	protected String getMapping() {
+		return "/v1.0/roles";
+	}
+
+	
 	/**
 	 * Adds permissions to a role.
 	 * 

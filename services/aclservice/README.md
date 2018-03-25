@@ -14,7 +14,6 @@ Still a work in progress with lots to do:
 * Add unit testing
 * Shore up exception handling
 * Create swagger definition
-* Re-enable eureka and config server
 * Look at moving the abstract classes into a common library
 * Plug into gateway
 * Clean up code

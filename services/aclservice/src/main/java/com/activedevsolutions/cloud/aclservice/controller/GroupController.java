@@ -40,6 +40,11 @@ public class GroupController extends AbstractController<Group> {
 		return item;
 	}
 	
+	@Override
+	protected String getMapping() {
+		return "/v1.0/groups";
+	}
+	
 	/**
 	 * Adds roles to a group.
 	 * 
@@ -51,7 +56,7 @@ public class GroupController extends AbstractController<Group> {
 	@ResponseBody
 	public ResponseEntity<Group> addChildren(@PathVariable("id") int id, 
 			@RequestBody List<Role> roles, UriComponentsBuilder ucb) throws ResourceNotFoundException {
- 		LOGGER.info("[START] Adding {}", roles);
+ 		LOGGER.info("[START] Adding roles for {}", id);
 		
 		// Get the group first
 		Group group = dao.getItem(id);
@@ -67,7 +72,7 @@ public class GroupController extends AbstractController<Group> {
 		URI locationUri = ucb.path("/v1.0/groups/roles").path(String.valueOf(id)).build().toUri();
 		headers.setLocation(locationUri);
 		
-		LOGGER.info("[END] Adding {}", roles);
+		LOGGER.info("[END] Adding roles for {}", id);
 		return new ResponseEntity<>(group, headers, HttpStatus.CREATED);
 	}
 	

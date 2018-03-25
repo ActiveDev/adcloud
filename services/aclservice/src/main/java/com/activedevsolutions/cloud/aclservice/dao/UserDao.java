@@ -48,7 +48,7 @@ public class UserDao extends AbstractDao<User> {
 	 */
 	@Override
 	protected int deleteQuery(int id) {
-		return jdbcTemplate.update("DELETE sec_user WHERE id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_user WHERE id = ?;", id);
 	}
 
 	/**
@@ -104,6 +104,6 @@ public class UserDao extends AbstractDao<User> {
 	 */
 	@Override
 	public int deleteChildren(int id) {
-		return jdbcTemplate.update("DELETE sec_user_group WHERE user_id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_user_group WHERE user_id = ?;", id);
 	}
 }

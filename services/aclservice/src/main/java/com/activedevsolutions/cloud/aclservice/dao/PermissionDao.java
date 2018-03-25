@@ -47,7 +47,7 @@ public class PermissionDao extends AbstractDao<Permission> {
 	 */
 	@Override
 	protected int deleteQuery(int id) {
-		return jdbcTemplate.update("DELETE sec_permission WHERE id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_permission WHERE id = ?;", id);
 	}
 
 	/**

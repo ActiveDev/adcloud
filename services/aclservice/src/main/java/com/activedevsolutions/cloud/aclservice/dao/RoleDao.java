@@ -52,7 +52,7 @@ public class RoleDao extends AbstractDao<Role> {
 	 */
 	@Override
 	protected int deleteQuery(int id) {
-		return jdbcTemplate.update("DELETE sec_role WHERE id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_role WHERE id = ?;", id);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class RoleDao extends AbstractDao<Role> {
 	 */
 	@Override
 	public int deleteChildren(int id) {
-		return jdbcTemplate.update("DELETE sec_role_permission WHERE role_id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_role_permission WHERE role_id = ?;", id);
 	}
 	
 	/**

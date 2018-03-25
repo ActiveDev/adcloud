@@ -1,6 +1,6 @@
-CREATE SCHEMA IF NOT EXISTS acl;
+CREATE DATABASE IF NOT EXISTS rbac;
 
-use acl;
+use rbac;
 
 drop table if exists sec_role_permission;
 drop table if exists sec_group_role;

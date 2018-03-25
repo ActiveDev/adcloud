@@ -52,7 +52,7 @@ public class GroupDao extends AbstractDao<Group> {
 	 */
 	@Override
 	protected int deleteQuery(int id) {
-		return jdbcTemplate.update("DELETE sec_group WHERE id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_group WHERE id = ?;", id);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class GroupDao extends AbstractDao<Group> {
 	 */
 	@Override
 	public int deleteChildren(int id) {
-		return jdbcTemplate.update("DELETE sec_group_role WHERE group_id = ?;", id);
+		return jdbcTemplate.update("DELETE FROM sec_group_role WHERE group_id = ?;", id);
 	}
 	
 	/**
