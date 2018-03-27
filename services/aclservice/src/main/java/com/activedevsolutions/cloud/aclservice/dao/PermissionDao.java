@@ -115,4 +115,29 @@ public class PermissionDao extends AbstractDao<Permission> {
 		
 		return items;
 	}
+	
+	/**
+	 * Gets the resource.
+	 * 
+	 * @param id is the user id
+	 * @return List<Permission> is a list of permissions for the role
+	 */
+	public List<Permission> getPermissionByUser(String userId) {
+		LOGGER.debug("[START] Get permissions for user {}", userId);
+		
+		List<Permission> items = null;		
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(
+				"SELECT sp.id, sp.name, sp.endpoint " +
+				"FROM   sec_user su, sec_user_group sug,  sec_group_role sgr,  sec_role_permission srp, sec_permission sp " +
+				"WHERE  su.user_id = ? " +
+				"AND    su.id = sug.user_id " +
+				"AND    sug.group_id = sgr.group_id " +
+				"AND    sgr.role_id = srp.role_id " +
+				"AND    srp.permission_id = sp.id;", userId);
+		items = parse(results);
+		
+		LOGGER.debug("[END] Get permissions for user {}", userId);
+		
+		return items;
+	}	
 }

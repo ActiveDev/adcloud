@@ -22,7 +22,12 @@ To use security, modify the gateway-default.properties and set security.enabled 
 2) mvn spring-boot:run
 
 ## JMeter Tests
-Added JMeter tests that call the template service through the gateway.
+### gateway_template_tests.jmx 
+Will call the template service through the gateway. It assumes that security is turned off and the rbac authorization is set to none.
+
+### gateway_aclservice_withsecurity_tests.jmx
+Will call the acl service through the gateway. It assumes security is turned on and rbac authorization is set to filter.
+In addition, the mockidm needs to be running in order to do the login. The default user is root, but you can switch it to ben to see how it restricts the write calls.
 
 ## Url
 localhost:8080/gateway/template-service/template/v1.0/items

@@ -4,8 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.activedevsolutions.cloud.gateway.security.Security;
 import com.activedevsolutions.rbac.autoconfigure.RBACAuthMethod;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -16,6 +18,9 @@ import com.netflix.zuul.context.RequestContext;
  */
 public final class RBACAuthFilter extends ZuulFilter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RBACAuthFilter.class);
+	
+	@Autowired
+	private Security security;
 	
 	@Value("${rbac.authorization.method}")
     private String rbacMethod;
@@ -42,8 +47,7 @@ public final class RBACAuthFilter extends ZuulFilter {
 	    String path = request.getServletPath();
 	    String method = request.getMethod();
 
-	    //TODO Implement
-	    boolean authorized = true;
+	    boolean authorized = security.checkAccess(principal, path, method);
 	    
 	    if (!authorized) {
 	    	setFailedRequest("User does not have permission to the resource.", 403);

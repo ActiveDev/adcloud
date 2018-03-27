@@ -11,7 +11,7 @@ import com.activedevsolutions.cloud.aclservice.model.Permission;
  */
 @RestController
 @RequestMapping("/v1.0/permissions")
-public class PermissionController extends AbstractController<Permission> {
+public class PermissionController extends AbstractController<Permission> {	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -26,5 +26,4 @@ public class PermissionController extends AbstractController<Permission> {
 	protected String getMapping() {
 		return "/v1.0/permissions";
 	}
-
 }

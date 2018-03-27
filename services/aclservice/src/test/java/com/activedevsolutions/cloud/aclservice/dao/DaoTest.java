@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.activedevsolutions.cloud.aclservice.model.Group;
 import com.activedevsolutions.cloud.aclservice.model.Permission;
 import com.activedevsolutions.cloud.aclservice.model.Role;
+import com.activedevsolutions.cloud.aclservice.model.User;
 
 @SpringBootTest
 @PropertySource("bootstrap.yml")
@@ -27,6 +28,82 @@ public class DaoTest {
 	
 	@Autowired
 	private GroupDao groupDao;
+	
+	@Autowired
+	private UserDao userDao;
+	
+	@Test
+	public void testUser() {
+		setupPermission();
+		List<Permission> permissions = permissionDao.getList();
+		setupRole(permissions);
+		List<Role> roles = roleDao.getList();
+		setupGroup(permissions, roles);
+		List<Group> groups = groupDao.getList();
+		
+		User user = setupUser(groups, permissions, roles);
+		
+		List<Permission> userPermissions = permissionDao.getPermissionByUser(user.getUserId());
+		assertTrue(!userPermissions.isEmpty());
+		
+		deleteUser(user);
+
+		for (Group group : groups) {
+			deleteGroup(group);
+		}
+
+		for (Role role : roles) {
+			deleteRole(role);
+		}
+		
+		for (Permission permission : permissions) {
+			deletePermission(permission);
+		}
+	}
+	
+	private User setupUser(List<Group> groups, List<Permission> permissions, List<Role> roles) {
+		// Create
+		User object = new User();
+		object.setId(0);
+		object.setUserId("user1@email.com");
+		object.setFirstName("user");
+		object.setLastName("1");
+		int result = userDao.create(object);
+		assertTrue(result > 0);
+		object.setId(result);
+		
+		// Add permission
+		userDao.addChildren(object.getId(), groups);
+		
+		// Get Item
+		User retrievedObject = userDao.getItem(result);
+		assertTrue(retrievedObject!=null);
+		assertTrue(retrievedObject.getId() == object.getId());
+		assertTrue(retrievedObject.getUserId().equals(object.getUserId()));
+		assertTrue(!retrievedObject.getGroups().isEmpty());
+		
+		// Get List
+		List<User> users = userDao.getList();
+		assertTrue(users!=null);
+		assertTrue(!users.isEmpty());
+		
+		// Update
+		retrievedObject.setLastName("2");
+		result = userDao.update(retrievedObject);
+		assertTrue(result == 1);
+		User updatedObject = userDao.getItem(retrievedObject.getId());
+		assertTrue(updatedObject.equals(retrievedObject));
+
+		return updatedObject;
+	}
+	
+	private void deleteUser(User user) {	
+		// Delete
+		int result = userDao.delete(user.getId());
+		assertTrue(result > 0);
+		User retrievedObject = userDao.getItem(user.getId());
+		assertTrue(retrievedObject==null);
+	}
 	
 	@Test
 	public void testGroup() {

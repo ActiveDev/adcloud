@@ -13,11 +13,11 @@ drop table if exists sec_permission;
 CREATE TABLE IF NOT EXISTS sec_user
 (
     id INT NOT NULL AUTO_INCREMENT,
-	email VARCHAR(1000) NOT NULL,
+	user_id VARCHAR(255) NOT NULL,
  	first_name VARCHAR(255) NOT NULL,
  	last_name VARCHAR(255) NOT NULL,	
 	PRIMARY KEY (id),
-	UNIQUE UQ_USER_email(email)
+	UNIQUE UQ_USER_user_id(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS sec_group
@@ -90,4 +90,3 @@ ALTER TABLE sec_user_group ADD CONSTRAINT FK_usergrp_user_id
 	FOREIGN KEY (user_id) REFERENCES sec_user (id);
 ALTER TABLE sec_user_group ADD CONSTRAINT FK_usergrp_group_id 
 	FOREIGN KEY (group_id) REFERENCES sec_group (id);
-	

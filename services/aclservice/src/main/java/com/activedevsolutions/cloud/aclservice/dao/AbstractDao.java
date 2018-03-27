@@ -28,7 +28,7 @@ public abstract class AbstractDao<T> {
 	protected static final String ATTRIBUTE_ENDPOINT = "endpoint";
 	protected static final String ATTRIBUTE_FIRST_NAME = "first_name";
 	protected static final String ATTRIBUTE_LAST_NAME = "last_name";
-	protected static final String ATTRIBUTE_EMAIL = "email";
+	protected static final String ATTRIBUTE_USERID = "user_id";
 	
 	// Query for getting the id of the newly created record
 	private static final String SQL_GET_LAST_ID = "SELECT LAST_INSERT_ID();";

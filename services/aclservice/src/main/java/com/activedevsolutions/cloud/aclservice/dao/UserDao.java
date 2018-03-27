@@ -30,8 +30,8 @@ public class UserDao extends AbstractDao<User> {
 	 */
 	@Override
 	protected void createQuery(User item) {
-		jdbcTemplate.update("INSERT INTO sec_user (email, first_name, last_name) VALUES (?, ?, ?)", 
-				item.getEmail(), item.getFirstName(), item.getLastName());
+		jdbcTemplate.update("INSERT INTO sec_user (user_id, first_name, last_name) VALUES (?, ?, ?)", 
+				item.getUserId(), item.getFirstName(), item.getLastName());
 	}
 
 	/**
@@ -39,8 +39,8 @@ public class UserDao extends AbstractDao<User> {
 	 */
 	@Override
 	protected int updateQuery(User item) {
-		return jdbcTemplate.update("UPDATE sec_user SET email = ?, first_name = ?, last_name = ? WHERE id = ?;", 
-				item.getEmail(), item.getFirstName(), item.getLastName(), item.getId());
+		return jdbcTemplate.update("UPDATE sec_user SET user_id = ?, first_name = ?, last_name = ? WHERE id = ?;", 
+				item.getUserId(), item.getFirstName(), item.getLastName(), item.getId());
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class UserDao extends AbstractDao<User> {
 	protected User assembleItem(Map<String, Object> row) {
 		final User user = new User();
 		user.setId((int)row.get(ATTRIBUTE_ID));
-		user.setEmail((String)row.get(ATTRIBUTE_EMAIL));
+		user.setUserId((String)row.get(ATTRIBUTE_USERID));
 		user.setFirstName((String)row.get(ATTRIBUTE_FIRST_NAME));
 		user.setLastName((String)row.get(ATTRIBUTE_LAST_NAME));
 
