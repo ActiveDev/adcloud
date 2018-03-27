@@ -9,8 +9,11 @@ Provides the Eureka Discovery service and the Hystrix Dashboard
 ## Config
 Provides a centralized configuration for all of the components using the Spring Cloud Config Server.
 
-## TemplateService
+## services/Template Service
 This is just a sample microservice to show how it interacts with the gateway
+
+## services/ACL Service
+This provides the access control list to the RBAC filter in the gateway. This service is required when security is enabled and the authorization method is set to filter.
 
 ## Gateway
 Uses Zuul to proxy requests through and also to provide access. The plumbing is being put in place for security and RBAC and should be coming shortly.

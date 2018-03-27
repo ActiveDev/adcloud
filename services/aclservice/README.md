@@ -7,6 +7,7 @@ Provides CRUD functionality for the access control list of the system.
 
 ## Run
 * Ensure MySql Server is running.
+* Run the mysql-schema.sql script against the db.
 * mvn spring-boot:run
 
 ## Action Items
@@ -30,3 +31,11 @@ Reousrces:
 * groups
 * roles
 * permissions
+
+## Docker
+Image coming soon
+
+### Database
+docker run -e MYSQL_ROOT_PASSWORD=secret -d -p 3306:3306 mysql:5.7.13
+
+If using Virtualbox, make sure port forwarding is enabled for 3306
