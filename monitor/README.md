@@ -16,5 +16,5 @@ Start the Gateway
 From the Hystrix Dashboard, enter: http://localhost:8080/gateway/hystrix.stream
 
 ## Docker
-mvn install dockerfile:build
-docker run -p 8761:8761 activedev/monitor
+* mvn install dockerfile:build
+* docker run -d -p 8761:8761 activedev/adcloud_monitor

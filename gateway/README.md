@@ -31,3 +31,7 @@ In addition, the mockidm needs to be running in order to do the login. The defau
 
 ## Url
 localhost:8080/gateway/template-service/template/v1.0/items
+
+## Docker
+* mvn install dockerfile:build
+* docker run -d -p 8888:8888 activedev/adcloud_gateway

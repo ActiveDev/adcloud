@@ -16,3 +16,7 @@ Added some jmeter tests to see how the service runs on its own (no gateway or co
 
 ## Url
 localhost:9000/template/v1.0/items
+
+## Docker
+* mvn install dockerfile:build
+* docker run -d -p 9000:9000 activedev/adcloud_templateservice

@@ -13,3 +13,7 @@ Basic Auth: mock/secret
 curl mock:secret@localhost:8080/mockauth/oauth/token -d grant_type=password -d username=ben -d password=benspassword 
 
 This will create a JWT with a signing key of "123"
+
+## Docker
+* mvn install dockerfile:build
+* docker run -d -p 8090:8090 activedev/adcloud_mockidm

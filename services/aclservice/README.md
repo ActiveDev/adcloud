@@ -33,7 +33,8 @@ Reousrces:
 * permissions
 
 ## Docker
-Image coming soon
+* mvn install dockerfile:build
+* docker run -d -p 9001:9001 activedev/adcloud_aclservice
 
 ### Database
 docker run -e MYSQL_ROOT_PASSWORD=secret -d -p 3306:3306 mysql:5.7.13
