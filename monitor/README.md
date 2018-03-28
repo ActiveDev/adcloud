@@ -14,7 +14,3 @@ http://localhost:8761/hystrix
 To monitor the streams from the gateway:
 Start the Gateway
 From the Hystrix Dashboard, enter: http://localhost:8080/gateway/hystrix.stream
-
-## Docker
-* mvn install dockerfile:build
-* docker run -d -p 8761:8761 activedev/adcloud_monitor

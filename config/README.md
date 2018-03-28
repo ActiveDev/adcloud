@@ -7,7 +7,3 @@ The current repository is located in the repo folder. This folder can be located
 
 ## Future Considerations
 To use a git repository which will allow for proper tracking of changes to the configuration files 
-
-## Docker
-* mvn install dockerfile:build
-* docker run -d -p 8888:8888 activedev/adcloud_config
