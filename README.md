@@ -28,6 +28,6 @@ There was a conscious decision to not use maven parent projects as it hides an u
 ## Mock IDM
 When using the security features in the gateway, this mock identity management server can be used to generate JWTs. This is just a placeholder for demonstrations.
 
-## Docker
-General project that provides docker configurations and information.
+## adcloud_Docker
+General project that provides information on getting up and running using docker. This includes several docker-compose yml files that will setup the entire cloud. It's a great way to see just how everything fits together.
 
