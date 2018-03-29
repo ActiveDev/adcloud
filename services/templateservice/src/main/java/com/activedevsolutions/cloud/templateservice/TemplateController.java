@@ -24,9 +24,7 @@ public class TemplateController extends AbstractController<Item> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Item setupItem(Item item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(Item item, int id) {
 		item.setId(id);
-		return item;
 	}
 }

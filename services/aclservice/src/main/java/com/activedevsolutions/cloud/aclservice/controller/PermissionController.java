@@ -16,10 +16,8 @@ public class PermissionController extends AbstractController<Permission> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Permission setupItem(Permission item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(Permission item, int id) {
 		item.setId(id);
-		return item;
 	}
 	
 	@Override

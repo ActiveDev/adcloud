@@ -34,10 +34,8 @@ public class GroupController extends AbstractController<Group> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Group setupItem(Group item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(Group item, int id) {
 		item.setId(id);
-		return item;
 	}
 	
 	@Override
@@ -69,7 +67,7 @@ public class GroupController extends AbstractController<Group> {
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		URI locationUri = ucb.path("/v1.0/groups/roles").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/" +  id + "/roles/").build().toUri();
 		headers.setLocation(locationUri);
 		
 		LOGGER.info("[END] Adding roles for {}", id);

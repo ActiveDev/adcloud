@@ -45,6 +45,10 @@ public abstract class AbstractController<T> {
 	
 	//TODO Improve exception handling as the runtime exceptions are not being caught properly
 	
+	protected String getMapping() {
+		return RESOURCE;
+	}
+	
 	/**
 	 * Creates a item.
 	 * 
@@ -54,21 +58,20 @@ public abstract class AbstractController<T> {
 	@RequestMapping(value = RESOURCE, method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<T> add(@RequestBody T item, UriComponentsBuilder ucb) {
- 		LOGGER.info("[START] Adding {}", item);
+ 		LOGGER.info("[START] {} Adding {}", getMapping(), item);
 		// Create the item object with the values passed in.
 		
 		// Save item
 		int id = dao.create(item);
-		T newItem = setupItem(item, id);
+		setupItem(item, id);
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		//TODO This uri is missing the correct resource
-		URI locationUri = ucb.path("/v1.0" + RESOURCE + "/").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/").path(String.valueOf(id)).build().toUri();
 		headers.setLocation(locationUri);
 		
-		LOGGER.info("[END] Adding {}", newItem);
-		return new ResponseEntity<>(newItem, headers, HttpStatus.CREATED);
+		LOGGER.info("[END] {} Adding {}", getMapping(), item);
+		return new ResponseEntity<>(item, headers, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -77,9 +80,8 @@ public abstract class AbstractController<T> {
 	 * 
 	 * @param item is the item to modify
 	 * @param id is the id of the item
-	 * @return T newly modified item.
 	 */
-	protected abstract T setupItem(T item, int id);
+	protected abstract void setupItem(T item, int id);
 
 	/**
 	 * Update item.
@@ -88,15 +90,12 @@ public abstract class AbstractController<T> {
 	 * @return item object containing the updated item
 	 * @throws ResourceNotFoundException when the item is not found
 	 */
-	@RequestMapping(value = RESOURCE + "/{id}", method = RequestMethod.PUT, consumes = "application/json", 
+	@RequestMapping(value = RESOURCE, method = RequestMethod.PUT, consumes = "application/json", 
 			produces = "application/json")
 	@ResponseBody
 	public T update(HttpServletRequest request, HttpServletResponse response, 
-			@RequestBody T item) throws ResourceNotFoundException {
-		
-		//TODO the id in the url is not used
-		
-		LOGGER.info("[START] Updating {}", item);
+			@RequestBody T item) throws ResourceNotFoundException {		
+		LOGGER.info("[START] {} Updating {} ", getMapping(), item);
 		
 		// Create the item object with the values passed in.
 		int result = dao.update(item);
@@ -105,7 +104,7 @@ public abstract class AbstractController<T> {
 			throw new ResourceNotFoundException();
 		} // end if
 		
-		LOGGER.info("[END] Updating {}", item);
+		LOGGER.info("[END] {} Updating {}", getMapping(), item);
 		return item;
 	}
 	
@@ -118,10 +117,10 @@ public abstract class AbstractController<T> {
 	@RequestMapping(value = RESOURCE, method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public Collection<T> list(@RequestParam(value = "sorting", required = false) String sorting) {
-		LOGGER.info("[START] Retrieving");
+		LOGGER.info("[START] {} Retrieving", getMapping());
 		//TODO implement sorting
 
-		LOGGER.info("[END] Retrieving");
+		LOGGER.info("[END] {} Retrieving", getMapping());
 		return dao.getList();
 	}
 
@@ -135,14 +134,14 @@ public abstract class AbstractController<T> {
 	@RequestMapping(value = RESOURCE + "/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
 	public T getItem(HttpServletResponse response, @PathVariable("id") int id) throws ResourceNotFoundException {
-		LOGGER.info("[START] Retrieving item {}", id);
+		LOGGER.info("[START] {} Retrieving item {}", getMapping(), id);
 		final T item = dao.getItem(id);
 		
 		if (item == null) {
 			throw new ResourceNotFoundException();
 		} // end if
 		
-		LOGGER.info("[END] Retrieving item {}", id);
+		LOGGER.info("[END] {} Retrieving item {}", getMapping(), id);
 		return item;
 	}
 
@@ -155,7 +154,7 @@ public abstract class AbstractController<T> {
 	@RequestMapping(value = RESOURCE + "/{id}", method = RequestMethod.DELETE, produces = "application/json")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteItem(HttpServletResponse response, @PathVariable("id") int id) throws ResourceNotFoundException {
-		LOGGER.info("[START] Deleting item {}", id);
+		LOGGER.info("[START] {} Deleting item {}", getMapping(), id);
 		
 		int result = dao.delete(id);
 		
@@ -163,6 +162,6 @@ public abstract class AbstractController<T> {
 			throw new ResourceNotFoundException();
 		} // end if
 		
-		LOGGER.info("[END] Deleting item {}", id);
+		LOGGER.info("[END] {} Deleting item {}", getMapping(), id);
 	}
 }

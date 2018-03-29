@@ -63,16 +63,15 @@ public abstract class AbstractController<T> {
 		
 		// Save item
 		int id = dao.create(item);
-		T newItem = setupItem(item, id);
+		setupItem(item, id);
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		//TODO This uri is missing the correct resource
-		URI locationUri = ucb.path("/v1.0" + RESOURCE + "/").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/").path(String.valueOf(id)).build().toUri();
 		headers.setLocation(locationUri);
 		
-		LOGGER.info("[END] {} Adding {}", getMapping(), newItem);
-		return new ResponseEntity<>(newItem, headers, HttpStatus.CREATED);
+		LOGGER.info("[END] {} Adding {}", getMapping(), item);
+		return new ResponseEntity<>(item, headers, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -81,9 +80,8 @@ public abstract class AbstractController<T> {
 	 * 
 	 * @param item is the item to modify
 	 * @param id is the id of the item
-	 * @return T newly modified item.
 	 */
-	protected abstract T setupItem(T item, int id);
+	protected abstract void setupItem(T item, int id);
 
 	/**
 	 * Update item.
@@ -92,14 +90,11 @@ public abstract class AbstractController<T> {
 	 * @return item object containing the updated item
 	 * @throws ResourceNotFoundException when the item is not found
 	 */
-	@RequestMapping(value = RESOURCE + "/{id}", method = RequestMethod.PUT, consumes = "application/json", 
+	@RequestMapping(value = RESOURCE, method = RequestMethod.PUT, consumes = "application/json", 
 			produces = "application/json")
 	@ResponseBody
 	public T update(HttpServletRequest request, HttpServletResponse response, 
 			@RequestBody T item) throws ResourceNotFoundException {
-		
-		//TODO the id in the url is not used
-		
 		LOGGER.info("[START] {} Updating {} ", getMapping(), item);
 		
 		// Create the item object with the values passed in.

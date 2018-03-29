@@ -102,28 +102,28 @@ INSERT INTO sec_role (name, description) VALUES ('READ-WRITE', 'Read write acces
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Users', '^/acl-service/acl/v1.0/users.GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get User', '^/acl-service/acl/v1.0/users/([a-zA-Z0-9_-]*).GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Add User', '^/acl-service/acl/v1.0/users.POST$');
-INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update User', '^/acl-service/acl/v1.0/users/([a-zA-Z0-9_-]*).PUT$');
+INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update User', '^/acl-service/acl/v1.0/users.PUT$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Delete User', '^/acl-service/acl/v1.0/users/([a-zA-Z0-9_-]*).DELETE$');
 
 -- Groups
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Groups', '^/acl-service/acl/v1.0/groups.GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Group', '^/acl-service/acl/v1.0/groups/([a-zA-Z0-9_-]*).GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Add Group', '^/acl-service/acl/v1.0/groups.POST$');
-INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Group', '^/acl-service/acl/v1.0/groups/([a-zA-Z0-9_-]*).PUT$');
+INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Group', '^/acl-service/acl/v1.0/groups.PUT$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Delete Group', '^/acl-service/acl/v1.0/groups/([a-zA-Z0-9_-]*).DELETE$');
 
 -- Roles
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Roles', '^/acl-service/acl/v1.0/roles.GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Role', '^/acl-service/acl/v1.0/roles/([a-zA-Z0-9_-]*).GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Add Role', '^/acl-service/acl/v1.0/roles.POST$');
-INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Role', '^/acl-service/acl/v1.0/roles/([a-zA-Z0-9_-]*).PUT$');
+INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Role', '^/acl-service/acl/v1.0/roles.PUT$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Delete Role', '^/acl-service/acl/v1.0/roles/([a-zA-Z0-9_-]*).DELETE$');
 
 -- Permissions
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Permissions', '^/acl-service/acl/v1.0/permissions.GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Get Permission', '^/acl-service/acl/v1.0/permissions/([a-zA-Z0-9_-]*).GET$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Add Permission', '^/acl-service/acl/v1.0/permissions.POST$');
-INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Permission', '^/acl-service/acl/v1.0/permissions/([a-zA-Z0-9_-]*).PUT$');
+INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Update Permission', '^/acl-service/acl/v1.0/permissions.PUT$');
 INSERT INTO sec_permission (name, endpoint) VALUES ('ACL Delete Permission', '^/acl-service/acl/v1.0/permissions/([a-zA-Z0-9_-]*).DELETE$');
 
 -- Others

@@ -34,10 +34,8 @@ public class RoleController extends AbstractController<Role> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Role setupItem(Role item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(Role item, int id) {
 		item.setId(id);
-		return item;
 	}
 	
 	@Override
@@ -70,7 +68,7 @@ public class RoleController extends AbstractController<Role> {
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		URI locationUri = ucb.path("/v1.0/roles/permissions").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/" +  id + "/permissions/").build().toUri();
 		headers.setLocation(locationUri);
 		
 		LOGGER.info("[END] Adding {}", permissions);

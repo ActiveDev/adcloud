@@ -34,10 +34,8 @@ public class UserController extends AbstractController<User> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected User setupItem(User item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(User item, int id) {
 		item.setId(id);
-		return item;
 	}
 	
 	@Override
@@ -70,7 +68,7 @@ public class UserController extends AbstractController<User> {
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		URI locationUri = ucb.path("/v1.0/users/groups").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/" +  id + "/groups/").build().toUri();
 		headers.setLocation(locationUri);
 		
 		LOGGER.info("[END] Adding {}", groups);
