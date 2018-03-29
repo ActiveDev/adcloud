@@ -58,7 +58,7 @@ public class OAuth2Configuration extends ResourceServerConfigurerAdapter {
     }
     
     /**
-     * Configures security to enforce OAuth for every endpoint except health and hystrix.
+     * Configures security to enforce OAuth for every endpoint.
      * 
      * {@inheritDoc}
      */
@@ -68,8 +68,6 @@ public class OAuth2Configuration extends ResourceServerConfigurerAdapter {
 		if (rbacMethod != null && rbacMethod.equals(RBACAuthMethod.GRANTED_AUTH.getName())) {
 			http
 				.authorizeRequests()
-				.antMatchers("/health").permitAll()
-				.antMatchers("/hystrix.stream").permitAll()				
 				.anyRequest().fullyAuthenticated()
 				.accessDecisionManager(accessDecisionManager())
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
@@ -78,8 +76,6 @@ public class OAuth2Configuration extends ResourceServerConfigurerAdapter {
 		else {
 			http
 				.authorizeRequests()
-				.antMatchers("/health").permitAll()
-				.antMatchers("/hystrix.stream").permitAll()
 				.anyRequest().fullyAuthenticated()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
 				;
