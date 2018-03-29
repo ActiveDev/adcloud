@@ -49,7 +49,7 @@ public class OAuth2Configuration extends ResourceServerConfigurerAdapter {
      * @return AccessDecisionManager
      */
     @Bean
-    @ConditionalOnExpression("'${rbac.authorization.method}'=='granted-auth'")
+    @ConditionalOnExpression("'${rbac.authorization.method:none}'=='granted-auth'")
     public AccessDecisionManager accessDecisionManager() {
         List<AccessDecisionVoter<? extends Object>> decisionVoters = 
         		Arrays.asList(new AuthenticatedVoter(), new GrantedAuthorityVoter());

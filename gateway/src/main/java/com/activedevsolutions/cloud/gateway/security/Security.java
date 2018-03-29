@@ -20,7 +20,7 @@ import com.activedevsolutions.cloud.gateway.filters.Permission;
  */
 @Service
 public class Security {
-	@Value("${rbac.authorization.url}")
+	@Value("${rbac.authorization.url:'http://localhost:9001/acl/v1.0/security/users/'}")
 	private String rbacUrl;
 	
     @Autowired
