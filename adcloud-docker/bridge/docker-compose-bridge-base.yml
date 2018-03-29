@@ -1,0 +1,50 @@
+version: '3'
+services:
+    monitor:
+        container_name: monitor
+        image: activedev/adcloud_monitor:0.1-preview
+        expose:
+            - 8761
+        ports:
+            - 8761:8761
+        networks:
+            - adcloud
+        logging:
+            driver: json-file
+    config:
+        container_name: config
+        image: activedev/adcloud_config:0.1-preview
+        environment:
+            - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH-LOCATIONS=/config-repo
+            - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://monitor:8761/eureka/
+            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true
+        expose:
+            - 8888
+        ports:
+            - 8888:8888
+        networks:
+            - adcloud
+        volumes:
+            - /tmp/config-repo:/config-repo
+        links:
+            - monitor:monitor
+        depends_on:
+            - monitor
+        logging:
+            driver: json-file
+    acldb:
+        container_name: acldb
+        image: mysql:5.7.13
+        environment:
+            - MYSQL_ROOT_PASSWORD=secret
+        expose:
+            - 3306
+        ports:
+            - 3306:3306
+        networks:
+            - adcloud
+        logging:
+            driver: json-file
+networks:
+    adcloud:
+        driver: bridge

@@ -1,0 +1,44 @@
+version: '3'
+services:
+    gateway:
+        container_name: gateway
+        image: activedev/adcloud_gateway:0.1-preview
+        environment:
+            - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://monitor:8761/eureka/
+            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true
+        expose:
+            - 8080
+        ports:
+            - 8080:8080
+        networks:
+            - adcloud
+        logging:
+            driver: json-file
+    aclservice:
+        container_name: aclservice
+        image: activedev/adcloud_aclservice:0.1-preview
+        environment:
+            - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://monitor:8761/eureka/
+            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true
+        expose:
+            - 9001
+        ports:
+            - 9001:9001
+        networks:
+            - adcloud
+        logging:
+            driver: json-file
+    mockidm:
+        container_name: mockidm
+        image: activedev/adcloud_mockidm:0.1-preview
+        expose:
+            - 8090
+        ports:
+            - 8090:8090
+        networks:
+            - adcloud
+        logging:
+            driver: json-file
+networks:
+    adcloud:
+        driver: bridge
