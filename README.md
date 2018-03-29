@@ -28,27 +28,6 @@ There was a conscious decision to not use maven parent projects as it hides an u
 ## Mock IDM
 When using the security features in the gateway, this mock identity management server can be used to generate JWTs. This is just a placeholder for demonstrations.
 
-
 ## Docker
-Each project has the ability to build a docker image:
-* mvn install dockerfile:build
-
-### Host Mode
-* docker run -d --name monitor --net=host -p 8761:8761 activedev/adcloud_monitor:{tag}
-* docker run -d --name config --net=host -p 8888:8888 activedev/adcloud_config:{tag}
-* docker run -d --name gateway --net=host -p 8080:8080 activedev/adcloud_gateway:{tag}
-* docker run --name acldb --net=host -e MYSQL_ROOT_PASSWORD=secret -d -p 3306:3306 mysql:5.7.13
-* docker run -d --name aclservice --net=host -p 9001:9001 activedev/adcloud_aclservice:{tag}
-* docker run -d -p 8090:8090 activedev/adcloud_mockidm:{tag}
-
-### Bridge Mode
-NOTE: Still a work in progress
-
-* docker network create adcloud
-* docker run -d --name monitor --net=adcloud -p 8761:8761 activedev/adcloud_monitor:{tag}
-* docker run -d --name config --net=adcloud -p 8888:8888 activedev/adcloud_config:{tag}
-* docker run -d --name gateway --net=adcloud -p 8080:8080 activedev/adcloud_gateway:{tag}
-* docker run -d --name acldb --net=adcloud -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret mysql:5.7.13
-* docker run -d --name aclservice --net=adcloud -p 9001:9001 activedev/adcloud_aclservice:{tag}
-* docker run -d -p --name mockidm --net=adcloud 8090:8090 activedev/adcloud_mockidm:{tag}
+General project that provides docker configurations and information.
 
