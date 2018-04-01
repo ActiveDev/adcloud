@@ -2,7 +2,7 @@ version: '3'
 services:
     monitor:
         container_name: monitor
-        image: activedev/adcloud_monitor:0.1-preview
+        image: activedev/adcloud_monitor:0.2-preview
         expose:
             - 8761
         ports:
@@ -12,9 +12,10 @@ services:
             driver: json-file
     config:
         container_name: config
-        image: activedev/adcloud_config:0.1-preview
+        image: activedev/adcloud_config:0.2-preview
         environment:
             - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH-LOCATIONS=/config-repo
+            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true            
         expose:
             - 8888
         ports:

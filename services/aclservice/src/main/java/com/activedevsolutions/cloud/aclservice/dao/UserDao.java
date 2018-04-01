@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import com.activedevsolutions.cloud.aclservice.model.Group;
-import com.activedevsolutions.cloud.aclservice.model.User;
+import com.activedevsolutions.cloud.core.security.model.Group;
+import com.activedevsolutions.cloud.core.security.model.User;
 
 /**
  * Provides the data access to the Permission resource.
  *
  */
-public class UserDao extends AbstractDao<User> {
+public class UserDao extends JdbcDao<User> {
 	@Autowired
 	private GroupDao groupDao;
 	
@@ -29,8 +29,8 @@ public class UserDao extends AbstractDao<User> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void createQuery(User item) {
-		jdbcTemplate.update("INSERT INTO sec_user (user_id, first_name, last_name) VALUES (?, ?, ?)", 
+	protected int createQuery(User item) {
+		return jdbcTemplate.update("INSERT INTO sec_user (user_id, first_name, last_name) VALUES (?, ?, ?)", 
 				item.getUserId(), item.getFirstName(), item.getLastName());
 	}
 

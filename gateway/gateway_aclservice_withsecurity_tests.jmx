@@ -33,7 +33,7 @@
             <stringProp name="-1719394422">loginPort</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="-31327592">
+            <collectionProp name="-763743246">
               <stringProp name="-1204607085">localhost</stringProp>
               <stringProp name="1716208">8080</stringProp>
               <stringProp name="-1204607085">localhost</stringProp>
@@ -160,7 +160,7 @@
           <stringProp name="HTTPSampler.port">${hostPort}</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/groups/${groupId}?access_token=${accessToken}</stringProp>
+          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/groups?access_token=${accessToken}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -257,7 +257,7 @@
           <stringProp name="HTTPSampler.port">${hostPort}</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/roles/${roleId}?access_token=${accessToken}</stringProp>
+          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/roles?access_token=${accessToken}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -354,7 +354,7 @@
           <stringProp name="HTTPSampler.port">${hostPort}</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/permissions/${permissionId}?access_token=${accessToken}</stringProp>
+          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/permissions?access_token=${accessToken}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -451,7 +451,7 @@
           <stringProp name="HTTPSampler.port">${hostPort}</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/users/${userId}?access_token=${accessToken}</stringProp>
+          <stringProp name="HTTPSampler.path">/gateway/acl-service/acl/v1.0/users?access_token=${accessToken}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

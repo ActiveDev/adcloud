@@ -8,13 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import com.activedevsolutions.cloud.aclservice.model.Permission;
+import com.activedevsolutions.cloud.core.security.model.Permission;
 
 /**
  * Provides the data access to the Permission resource.
  *
  */
-public class PermissionDao extends AbstractDao<Permission> {
+public class PermissionDao extends JdbcDao<Permission> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PermissionDao.class);
 	
 	/**
@@ -28,8 +28,8 @@ public class PermissionDao extends AbstractDao<Permission> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void createQuery(Permission item) {
-		jdbcTemplate.update("INSERT INTO sec_permission (name, endpoint) VALUES (?, ?)", 
+	protected int createQuery(Permission item) {
+		return jdbcTemplate.update("INSERT INTO sec_permission (name, endpoint) VALUES (?, ?)", 
 				item.getName(), item.getEndpoint());
 	}
 

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.activedevsolutions.cloud.core.dao.AbstractDao;
 import com.activedevsolutions.cloud.templateservice.model.Item;
 
 public class InMemoryDao extends AbstractDao<Item> {

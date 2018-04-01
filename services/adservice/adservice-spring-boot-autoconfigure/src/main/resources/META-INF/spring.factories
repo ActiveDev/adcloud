@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.activedevsolutions.cloud.rbac.autoconfigure.OAuth2Configuration,com.activedevsolutions.cloud.rbac.autoconfigure.NoOpConfiguration,com.activedevsolutions.cloud.autoconfigure.DiscoveryConfiguration

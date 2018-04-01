@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.activedevsolutions.cloud.aclservice.exception.ResourceNotFoundException;
-import com.activedevsolutions.cloud.aclservice.model.Group;
-import com.activedevsolutions.cloud.aclservice.model.User;
+import com.activedevsolutions.cloud.core.controller.AbstractController;
+import com.activedevsolutions.cloud.core.exception.ResourceNotFoundException;
+import com.activedevsolutions.cloud.core.security.model.Group;
+import com.activedevsolutions.cloud.core.security.model.User;
 
 /**
  * Exposes REST endpoints for the Role resource.
@@ -34,10 +35,8 @@ public class UserController extends AbstractController<User> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected User setupItem(User item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(User item, int id) {
 		item.setId(id);
-		return item;
 	}
 	
 	@Override
@@ -70,7 +69,7 @@ public class UserController extends AbstractController<User> {
 		
 		// Set the location for the new object
 		HttpHeaders headers = new HttpHeaders();
-		URI locationUri = ucb.path("/v1.0/users/groups").path(String.valueOf(id)).build().toUri();
+		URI locationUri = ucb.path(getMapping() + "/" +  id + "/groups/").build().toUri();
 		headers.setLocation(locationUri);
 		
 		LOGGER.info("[END] Adding {}", groups);

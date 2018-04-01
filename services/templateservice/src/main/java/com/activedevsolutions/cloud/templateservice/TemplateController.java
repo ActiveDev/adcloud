@@ -4,6 +4,7 @@ package com.activedevsolutions.cloud.templateservice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.activedevsolutions.cloud.core.controller.AbstractController;
 import com.activedevsolutions.cloud.templateservice.model.Item;
 
 /**
@@ -24,9 +25,7 @@ public class TemplateController extends AbstractController<Item> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Item setupItem(Item item, int id) {
-		//TODO Create immutable object
+	protected void setupItem(Item item, int id) {
 		item.setId(id);
-		return item;
 	}
 }
