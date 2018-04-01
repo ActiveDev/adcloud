@@ -38,17 +38,16 @@ import com.activedevsolutions.cloud.core.exception.ResourceNotFoundException;
 public abstract class AbstractController<T> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractController.class);
 	protected static final String RESOURCE = "";
-	
-	//TODO Create a starter project that all microservices would include
-	//TODO it should have AbstractController, Eureka config along with the ability to turn it off and on, Config client with the ability to turn off and on
-	//TODO it should have all common dependencies and common functionality
-	
+		
 	@Autowired
-	//TODO This should be an interface to further abstract the implementation
 	protected AbstractDao<T> dao;
 	
-	//TODO Improve exception handling as the runtime exceptions are not being caught properly
-	
+	/**
+	 * Allows for this to be overridden to allow for the sub class
+	 * to control what is logged.
+	 * 
+	 * @return String representing the mapping for the controller
+	 */
 	protected String getMapping() {
 		return RESOURCE;
 	}

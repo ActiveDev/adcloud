@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Component
 @ControllerAdvice
 public class BaseExceptionHandler {
+	//TODO Improve exception handling as the runtime exceptions are not being caught properly
+	
 	/**
 	 * Exception handler that will handle anything that derives from the
 	 * ResourceNotFoundException class. It will return a HTTP 404.

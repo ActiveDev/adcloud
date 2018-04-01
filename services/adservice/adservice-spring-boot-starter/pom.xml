@@ -5,7 +5,7 @@
 
 	<groupId>com.activedevsolutions.cloud</groupId>
 	<artifactId>adservice-spring-boot-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.2-preview</version>
 	<packaging>jar</packaging>
 
 	<name>adservice-spring-boot-starter</name>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.activedevsolutions.cloud</groupId>
 			<artifactId>adservice-spring-boot-autoconfigure</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.2-preview</version>
 		</dependency>
 	</dependencies>
 

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableEurekaClient
-@ConditionalOnExpression("${adservice.discovery.enabled:false}")
+@ConditionalOnExpression("${spring.cloud.config.discovery.enabled:false}")
 public class DiscoveryConfiguration {
 
 }
