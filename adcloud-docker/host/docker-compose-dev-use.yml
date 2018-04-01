@@ -15,7 +15,8 @@ services:
         image: activedev/adcloud_config:0.1-preview
         environment:
             - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH-LOCATIONS=/config-repo
-            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=true            
+            - EUREKA_INSTANCE_PREFER-IP-ADDRESS=false
+            - EUREKA_INSTANCE_HOSTNAME=localhost            
         expose:
             - 8888
         ports:
