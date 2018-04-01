@@ -3,7 +3,8 @@ package com.activedevsolutions.cloud.aclservice.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.activedevsolutions.cloud.aclservice.model.Permission;
+import com.activedevsolutions.cloud.core.controller.AbstractController;
+import com.activedevsolutions.cloud.core.security.model.Permission;
 
 /**
  * Exposes REST endpoints for the Permission resource.

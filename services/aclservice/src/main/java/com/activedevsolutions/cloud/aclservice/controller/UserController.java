@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.activedevsolutions.cloud.aclservice.exception.ResourceNotFoundException;
-import com.activedevsolutions.cloud.aclservice.model.Group;
-import com.activedevsolutions.cloud.aclservice.model.User;
+import com.activedevsolutions.cloud.core.controller.AbstractController;
+import com.activedevsolutions.cloud.core.exception.ResourceNotFoundException;
+import com.activedevsolutions.cloud.core.security.model.Group;
+import com.activedevsolutions.cloud.core.security.model.User;
 
 /**
  * Exposes REST endpoints for the Role resource.

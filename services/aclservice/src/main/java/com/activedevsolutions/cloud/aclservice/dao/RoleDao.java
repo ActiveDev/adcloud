@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import com.activedevsolutions.cloud.aclservice.model.Permission;
-import com.activedevsolutions.cloud.aclservice.model.Role;
+import com.activedevsolutions.cloud.core.security.model.Permission;
+import com.activedevsolutions.cloud.core.security.model.Role;
 
 /**
  * Provides the data access to the Permission resource.
  *
  */
-public class RoleDao extends AbstractDao<Role> {
+public class RoleDao extends JdbcDao<Role> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RoleDao.class);
 	
 	@Autowired
@@ -33,8 +33,8 @@ public class RoleDao extends AbstractDao<Role> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void createQuery(Role item) {
-		jdbcTemplate.update("INSERT INTO sec_role (name, description) VALUES (?, ?)", 
+	protected int createQuery(Role item) {
+		return jdbcTemplate.update("INSERT INTO sec_role (name, description) VALUES (?, ?)", 
 				item.getName(), item.getDescription());
 	}
 

@@ -15,10 +15,8 @@ package com.activedevsolutions.cloud.aclservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
 public class AclserviceApplication {
 
 	public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package com.activedevsolutions.cloud.aclservice.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.activedevsolutions.cloud.aclservice.model.Group;
-import com.activedevsolutions.cloud.aclservice.model.Permission;
-import com.activedevsolutions.cloud.aclservice.model.Role;
-import com.activedevsolutions.cloud.aclservice.model.User;
+import com.activedevsolutions.cloud.core.security.model.Group;
+import com.activedevsolutions.cloud.core.security.model.Permission;
+import com.activedevsolutions.cloud.core.security.model.Role;
+import com.activedevsolutions.cloud.core.security.model.User;
 
 @SpringBootTest
 @PropertySource("bootstrap.yml")

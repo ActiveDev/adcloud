@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import com.activedevsolutions.cloud.gateway.security.Security;
-import com.activedevsolutions.rbac.autoconfigure.RBACAuthMethod;
+import com.activedevsolutions.cloud.rbac.autoconfigure.RBACAuthMethod;
+import com.activedevsolutions.cloud.rbac.autoconfigure.Security;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
@@ -19,7 +19,7 @@ import com.netflix.zuul.context.RequestContext;
 public final class RBACAuthFilter extends ZuulFilter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(RBACAuthFilter.class);
 	
-	@Autowired
+	@Autowired(required=false)
 	private Security security;
 	
 	@Value("${rbac.authorization.method:none}")

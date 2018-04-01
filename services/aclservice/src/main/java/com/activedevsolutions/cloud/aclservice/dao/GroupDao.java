@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import com.activedevsolutions.cloud.aclservice.model.Group;
-import com.activedevsolutions.cloud.aclservice.model.Role;
+import com.activedevsolutions.cloud.core.security.model.Group;
+import com.activedevsolutions.cloud.core.security.model.Role;
 
 /**
  * Provides the data access to the Group resource.
  *
  */
-public class GroupDao extends AbstractDao<Group> {
+public class GroupDao extends JdbcDao<Group> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GroupDao.class);
 	
 	@Autowired
@@ -33,8 +33,8 @@ public class GroupDao extends AbstractDao<Group> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void createQuery(Group item) {
-		jdbcTemplate.update("INSERT INTO sec_group (name, description) VALUES (?, ?)", 
+	protected int createQuery(Group item) {
+		return jdbcTemplate.update("INSERT INTO sec_group (name, description) VALUES (?, ?)", 
 				item.getName(), item.getDescription());
 	}
 

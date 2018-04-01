@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.activedevsolutions.cloud.aclservice.dao.PermissionDao;
-import com.activedevsolutions.cloud.aclservice.model.Permission;
+import com.activedevsolutions.cloud.core.security.model.Permission;
+
 
 /**
  * This controller exposes endpoints that would specifically be used to
