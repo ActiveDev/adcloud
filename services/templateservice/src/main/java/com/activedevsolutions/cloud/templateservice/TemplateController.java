@@ -4,6 +4,7 @@ package com.activedevsolutions.cloud.templateservice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.activedevsolutions.cloud.core.controller.AbstractController;
 import com.activedevsolutions.cloud.templateservice.model.Item;
 
 /**
