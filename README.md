@@ -1,7 +1,7 @@
 # adcloud
 Contains projects to get up and running using Spring Cloud
 
-This is still a work in progress but the projects should help you get an understanding of how the various components fit together. The projects should be started in the following order:
+* NOTE: This branch is not stable. There is a lot of restructuring happening. If you are looking for something stable, please refer to the master branch.
 
 ## Monitor
 Provides the Eureka Discovery service and the Hystrix Dashboard
