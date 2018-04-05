@@ -22,7 +22,7 @@ public final class RBACAuthFilter extends ZuulFilter {
 	@Autowired(required=false)
 	private Security security;
 	
-	@Value("${rbac.authorization.method:none}")
+	@Value("${adservice.rbac.authorization.method:none}")
     private String rbacMethod;
 		
 	/**
