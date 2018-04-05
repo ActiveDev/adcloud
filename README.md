@@ -1,7 +1,8 @@
 # adcloud
 Contains projects to get up and running using Spring Cloud
 
-## 0.2-preview Release Notes
+## 0.2.1-preview Release Notes
+* NOTE: Fixed a bug with the RBAC auth method flag not getting set properly
 * Restructured some of the projects to reduce code duplication
 * adservice starter project contains dependencies and configurations for all microservices.
 * adservice has added a adservice. prefix to all of its properties
