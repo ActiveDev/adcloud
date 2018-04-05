@@ -5,7 +5,7 @@ Contains projects to get up and running using Spring Cloud
 * Restructured some of the projects to reduce code duplication
 * adservice starter project contains dependencies and configurations for all microservices.
 * adservice has added a adservice. prefix to all of its properties
-* This release does not contina much in the way of additional functionality. That should change with 0.3-preview
+* This release does not contain much in the way of additional functionality. That should change with 0.3-preview
 
 ## Monitor
 Provides the Eureka Discovery service and the Hystrix Dashboard
