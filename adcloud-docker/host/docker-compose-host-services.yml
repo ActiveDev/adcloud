@@ -2,7 +2,7 @@ version: '3'
 services:
     gateway:
         container_name: gateway
-        image: activedev/adcloud_gateway:0.2-preview
+        image: activedev/adcloud_gateway:0.3-preview
         expose:
             - 8080
         ports:
@@ -12,7 +12,7 @@ services:
             driver: json-file
     aclservice:
         container_name: aclservice
-        image: activedev/adcloud_aclservice:0.2-preview
+        image: activedev/adcloud_aclservice:0.3-preview
         expose:
             - 9001
         ports:
@@ -22,7 +22,7 @@ services:
             driver: json-file
     mockidm:
         container_name: mockidm
-        image: activedev/adcloud_mockidm:0.2-preview
+        image: activedev/adcloud_mockidm:0.3-preview
         expose:
             - 8090
         ports:

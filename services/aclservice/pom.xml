@@ -5,7 +5,7 @@
 
 	<groupId>com.activedevsolutions.cloud</groupId>
 	<artifactId>aclservice</artifactId>
-	<version>0.2-preview</version>
+	<version>0.3-preview</version>
 	<packaging>jar</packaging>
 
 	<name>aclservice</name>
@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>com.activedevsolutions.cloud</groupId>
 			<artifactId>adservice-spring-boot-starter</artifactId>
-			<version>0.2-preview</version>
+			<version>0.3-preview</version>
 		</dependency>
 		
 		<!-- Db -->

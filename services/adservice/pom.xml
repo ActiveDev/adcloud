@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.activedevsolutions.cloud</groupId>
 	<artifactId>adservice</artifactId>
-	<version>0.2-preview</version>
+	<version>0.3-preview</version>
 	<packaging>pom</packaging>
 
     <modules>

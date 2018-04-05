@@ -5,7 +5,7 @@
 
 	<groupId>com.activedevsolutions.cloud</groupId>
 	<artifactId>templateservice</artifactId>
-	<version>0.2-preview</version>
+	<version>0.3-preview</version>
 	<packaging>jar</packaging>
 
 	<name>templateservice</name>
@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>com.activedevsolutions.cloud</groupId>
 			<artifactId>adservice-spring-boot-starter</artifactId>
-			<version>0.2-preview</version>
+			<version>0.3-preview</version>
 		</dependency>
 						
 		<dependency>
