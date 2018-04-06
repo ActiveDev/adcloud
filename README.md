@@ -1,14 +1,14 @@
 # adcloud
 Contains projects to get up and running using Spring Cloud
 
-## 0.3-preview Release Notes
-* In-progress
-
-Full documentation can be found at https://activedevsolutions.com
-
 AD Cloud aims to provide a series of projects that will provide common configurations and functions simplifying implementation. Each project uses SpringBoot that can be run as a stand-alone jar or through a docker container.
 
 IMPORTANT: ADCloud is still in the development phase. The code is currently for preview versions to be used for demonstration purposes.
+
+Full documentation can be found at https://activedevsolutions.com
+
+## 0.3-preview Release Notes
+* In-progress
 
 ## Monitor
 This project enables a eureka server for discovery and a hystrix dashboard for circuit breaker metrics. It should be the first project run and is part of the base docker compose yml file.
