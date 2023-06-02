@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -39,10 +40,14 @@ import org.springframework.web.client.RestTemplate;
 @EnableResourceServer
 @EnableWebSecurity
 @ConditionalOnExpression("${adservice.security.enabled:false}")
+@EnableConfigurationProperties(OAuth2ConfigProperties.class)
 public class OAuth2Configuration extends ResourceServerConfigurerAdapter {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    private OAuth2ConfigProperties props;
+    
 	@Value("${adservice.rbac.authorization.url:'http://localhost:9001/acl/v1.0/security/users/'}")
 	private String rbacUrl;
 

@@ -40,3 +40,13 @@ services:
         network_mode: "host"
         logging:
             driver: json-file
+    mockidm:
+        container_name: mockidm
+        image: activedev/adcloud_mockidm:0.3-preview
+        expose:
+            - 8090
+        ports:
+            - 8090:8090
+        network_mode: "host"
+        logging:
+            driver: json-file
