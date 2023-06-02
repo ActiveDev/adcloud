@@ -2,7 +2,7 @@ version: '3'
 services:
     monitor:
         container_name: monitor
-        image: activedev/adcloud_monitor:0.2-preview
+        image: activedev/adcloud_monitor:0.3-preview
         expose:
             - 8761
         ports:
@@ -12,7 +12,7 @@ services:
             driver: json-file
     config:
         container_name: config
-        image: activedev/adcloud_config:0.2-preview
+        image: activedev/adcloud_config:0.3-preview
         environment:
             - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH-LOCATIONS=/config-repo
             - EUREKA_INSTANCE_PREFER-IP-ADDRESS=false
@@ -37,6 +37,16 @@ services:
             - 3306
         ports:
             - 3306:3306
+        network_mode: "host"
+        logging:
+            driver: json-file
+    mockidm:
+        container_name: mockidm
+        image: activedev/adcloud_mockidm:0.3-preview
+        expose:
+            - 8090
+        ports:
+            - 8090:8090
         network_mode: "host"
         logging:
             driver: json-file
